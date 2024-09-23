@@ -1,5 +1,5 @@
 let humanScore = 0;
-let compterScore = 0;
+let computerScore = 0;
 function getComputerChoice(){
     const rock = "rock";
     const paper = "paper";
@@ -21,38 +21,45 @@ console.log(ComputerSelection);
 
 function getHumanChoice(){
     const userInput = prompt("Enter your choice");
-    userInput.toLowerCase();
-    if(userInput==="rock"||userInput==="paper"||userInput==="scissor"){
-        return userInput;
+    let popo = userInput.toLowerCase();
+    if(popo==="rock"||popo==="paper"||popo==="scissor"){
+        return popo;
     }
     else alert("Please enter the correct input");
 
 }
 
+const HumanSelection = getHumanChoice();
+
 
 function playRound(humanChoice, computerChoice){
+    humanChoice.toLowerCase();
     if(humanChoice==="rock" && computerChoice==="scissor"){
-        alert('Human is the Winner');
+        console.log(`You won! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
     } 
     else if(humanChoice==="scissor" && computerChoice==="rock"){
-        alert('Computer is the Winner');
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
     }
     else if(humanChoice==="paper" && computerChoice==="rock"){
-        alert('Human is the Winner');
+        console.log(`You won! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
     } 
     else if(humanChoice==="rock" && computerChoice==="paper"){
-        alert('Computer is the Winner');
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
     }  
     else if(humanChoice==="scissor" && computerChoice==="paper"){
-        alert('Human is the Winner');
+        console.log(`You won! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
     } 
     else if(humanChoice==="paper" && computerChoice==="scissor"){
-        alert('Computer is the Winner');
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
     }       
-    else alert("Match is tie")
-        
-}
-
-    const HumanSelection = getHumanChoice();
-
+    else alert("Match is tie")        
+}  
     playRound(HumanSelection,ComputerSelection);
+    console.log(`Computer Score is ${computerScore}`);
+    console.log(`Human Score is ${humanScore}`);
