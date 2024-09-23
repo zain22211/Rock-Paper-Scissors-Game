@@ -1,27 +1,58 @@
+let humanScore = 0;
+let compterScore = 0;
 function getComputerChoice(){
-    const rock = "Rock";
-    const paper = "Paper";
-    const scissor = "Scissor";
+    const rock = "rock";
+    const paper = "paper";
+    const scissor = "scissor";
 
     let random =Math.floor(Math.random() * 3);
     if(random==0){
-        return console.log(rock);
+        return rock;
     }
     else if(random==1){
-        return console.log(paper);
+        return paper;
     }
     else
-        return console.log(scissor);
+        return scissor;
 
 }
-getComputerChoice();
+const ComputerSelection = getComputerChoice();
+console.log(ComputerSelection);
 
 function getHumanChoice(){
     const userInput = prompt("Enter your choice");
-    if(userInput==="Rock"||userInput==="Paper"||userInput==="Scissor"){
-        console.log("Correct Input");
+    userInput.toLowerCase();
+    if(userInput==="rock"||userInput==="paper"||userInput==="scissor"){
+        return userInput;
     }
     else alert("Please enter the correct input");
 
 }
-getHumanChoice();
+
+
+function playRound(humanChoice, computerChoice){
+    if(humanChoice==="rock" && computerChoice==="scissor"){
+        alert('Human is the Winner');
+    } 
+    else if(humanChoice==="scissor" && computerChoice==="rock"){
+        alert('Computer is the Winner');
+    }
+    else if(humanChoice==="paper" && computerChoice==="rock"){
+        alert('Human is the Winner');
+    } 
+    else if(humanChoice==="rock" && computerChoice==="paper"){
+        alert('Computer is the Winner');
+    }  
+    else if(humanChoice==="scissor" && computerChoice==="paper"){
+        alert('Human is the Winner');
+    } 
+    else if(humanChoice==="paper" && computerChoice==="scissor"){
+        alert('Computer is the Winner');
+    }       
+    else alert("Match is tie")
+        
+}
+
+    const HumanSelection = getHumanChoice();
+
+    playRound(HumanSelection,ComputerSelection);
